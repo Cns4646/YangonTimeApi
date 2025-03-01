@@ -8,9 +8,10 @@ app.get("/", (req, res) => {
 
 app.get("/api/get_time", (req, res) => {
     const now = new Date();
-    const options = { timeZone: "Asia/Yangon", hour12: false };
-    const options12h = { timeZone: "Asia/Yangon", hour12: true };
+    const options = { timeZone: "Asia/Yangon", hour12: false }; // 24-hour format
+    const options12h = { timeZone: "Asia/Yangon", hour12: true }; // 12-hour format
 
+    // Correct the time for both formats
     const time24h = now.toLocaleTimeString("en-US", options);
     const time12h = now.toLocaleTimeString("en-US", options12h);
 
@@ -18,9 +19,9 @@ app.get("/api/get_time", (req, res) => {
         year: now.getFullYear(),
         month: now.getMonth() + 1,
         day: now.getDate(),
-        hour_24: now.getHours(),
-        hour_12: now.toLocaleString("en-US", { hour: "2-digit", hour12: true }).split(" ")[0],
-        minute: now.getMinutes(),
+        hour_24: now.getHours(), // 24-hour format hour
+        hour_12: now.toLocaleString("en-US", { hour: "2-digit", hour12: true }).split(" ")[0], // 12-hour format hour
+        minute: now.getMinutes(), // Correct minute
         seconds: now.getSeconds(),
         milliSeconds: now.getMilliseconds(),
         dateTime: now.toISOString(),
@@ -35,5 +36,4 @@ app.get("/api/get_time", (req, res) => {
     res.json(data);
 });
 
-// Vercel Compatible API Export
 module.exports = app;
