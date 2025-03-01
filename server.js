@@ -27,11 +27,11 @@ app.get("/api/get_time", (req, res) => {
         time_12h: time12h,
         timeZone: "Asia/Yangon",
         dayOfWeek: now.toLocaleDateString("en-US", { weekday: "long" }),
-        dstActive: false,
+        dstActive: false
     };
 
     res.json(data);
 });
 
-// Vercel ကို Compatible ဖြစ်အောင် Export လုပ်ရန်
+// Vercel Compatible API Export
 module.exports = app;
