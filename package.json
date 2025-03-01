@@ -1,0 +1,13 @@
+{
+  "name": "yangon-time-api",
+  "version": "1.0.0",
+  "description": "Yangon Time API hosted on Vercel",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  }
+}
