@@ -6,7 +6,7 @@ app.get("/", (req, res) => {
     res.json({ message: "Yangon Time API is running!" });
 });
 
-app.get("/get_time", (req, res) => {
+app.get("/api/get_time", (req, res) => {
     const now = new Date();
     const options = { timeZone: "Asia/Yangon", hour12: false };
     const options12h = { timeZone: "Asia/Yangon", hour12: true };
@@ -35,4 +35,5 @@ app.get("/get_time", (req, res) => {
     res.json(data);
 });
 
+// Vercel Compatible API Export
 module.exports = app;
