@@ -1,8 +1,10 @@
 const express = require("express");
-const cors = require("cors");
 
 const app = express();
-app.use(cors());
+
+app.get("/", (req, res) => {
+    res.json({ message: "Yangon Time API is running!" });
+});
 
 app.get("/get_time", (req, res) => {
     const now = new Date();
@@ -33,5 +35,4 @@ app.get("/get_time", (req, res) => {
     res.json(data);
 });
 
-// Vercel ကို Compatible ဖြစ်အောင် Export လုပ်ရန်
 module.exports = app;
